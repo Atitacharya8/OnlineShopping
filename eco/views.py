@@ -529,3 +529,6 @@ def api_coupons(req):
     items = Coupon.objects.filter(Q())
     serializer = CouponSerializer(items, many=True)
     return Response(serializer.data)
+
+
+

@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -26,6 +25,11 @@ SECRET_KEY = '+*s9-t&^5pskbp@$uh+q03o74bh)f^gbo+(-&x8b1+rg)pgyqi'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+if DEBUG:
+    # during development only
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 
 # Application definition
@@ -85,7 +89,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -114,8 +117,8 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.github.GithubOAuth2',
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
-)
 
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -144,8 +147,6 @@ SOCIAL_AUTH_FACEBOOK_OAUTH2_SECRET = '0dd17f1731e00f0f4694bfa4e895e3a6'
 
 SOCIAL_AUTH__KEY = 'ID'
 SOCIAL_AUTH__SECRET = 'SECRET'
-
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -189,7 +190,6 @@ DEBUG_TOOLBAR_CONFIG = {
     'SHOW_TOOLBAR_CALLBACK': show_toolbar
 }
 
-
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = '/static/'
@@ -197,7 +197,6 @@ MEDIA_URL = '/media/'
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
-
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
@@ -208,3 +207,9 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 STRIPE_PUBLIC_KEY = 'pk_test_ITaEfShLUJlOPcX6mP6eOKj5'
 STRIPE_SECRET_KEY = 'sk_test_YpPm0QhOIUGYBbGZKdJjCXOg'
+
+
+
+
+ACCOUNT_EMAIL_VERIFICATION=''
+ACCOUNT_CONFIRM_EMAIL_ON_GET = ''

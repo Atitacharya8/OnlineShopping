@@ -1,4 +1,7 @@
+import allauth
 from django.urls import path
+
+
 from .views import (
     HomeView,
     googlemap,
@@ -10,7 +13,7 @@ from .views import (
     PaymentView,
     AddCouponView,
     RequestRefundView, api_items, api_order, api_order_items, api_address, api_payment, api_coupons, search,
-    detail)
+    detail,)
 
 app_name = 'eco'
 urlpatterns = [

@@ -48,20 +48,14 @@
                             <span class="clearfix d-none d-sm-inline-block"> Logout </span>
                         </a>
                     </li>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"
-                                data-display="static" aria-haspopup="true" aria-expanded="false">
-                            APIs
+                    <div class="btn-group text-white-50">
+                        <button type="button" class="btn btn-light dropdown-toggle btn-sm" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            Account
                         </button>
-                        <div class="dropdown-menu dropdown-menu-lg-right">
-                            <a class="dropdown-item btn btn-light" href="{% url "eco:api-items" %}"> Item-API </a>
-                           <a class="dropdown-item btn btn-light" href="{% url "eco:api-order-items" %}"> OrderItem-API </a>
-                            <a class="dropdown-item btn btn-light" href="{% url "eco:api-orders" %}"> Order-API </a>
-                            <a class="dropdown-item btn btn-light" href="{% url "eco:api-payment" %}"> Payment-API </a>
-                            <a class="dropdown-item btn btn-light" href="{% url "eco:api-address" %}"> Address-API </a>
-                            <a class="dropdown-item btn btn-light" href="{% url "eco:api-coupons" %}"> Coupon-API </a>
-{#                            <a class="dropdown-item btn btn-primary" href="{% url "eco:api-items" %}"> Item-API </a>#}
-
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <h6 class="clearfix d-none d-sm-inline-block p-1">Username:{{ user.username }}</h6>
+                            <a href="{% url 'account_change_password' %}" class="dropdown-item"><span class="clearfix d-none d-sm-inline-block"> Change Password </span></a>
                         </div>
                     </div>
                 {% else %}
